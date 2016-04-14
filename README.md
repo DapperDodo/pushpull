@@ -5,7 +5,7 @@
 Pushpull is a convenience adapter for writing and reading data (files) to and from polymorph sources.
 
 
-rationale:
+#### rationale:
 
 In my daily job I am frequently asked to import or export `stuff` to some location shared with the customer.
 These locations vary a lot in type. ftp, sftp, ftps, webdav etc...
@@ -19,26 +19,26 @@ It occurred to me that >80% of such cases could be solved in <20% of custom deve
 - Just Work(tm)!!
 
 
-interface:
+#### interface:
 
-pushpull is designed around a very simple interface with only two functions:
+pushpull is designed around two very simple interfaces:
 
 	push(filepath, []byte) error
 	pull(filepath) ([]byte, error)
 
 
-installation:
+#### installation:
 
 	go get -u github.com/DapperDodo/pushpull
 
 
-backends:
+#### backends:
 
 	ftp
 	ftps (coming soon)
 	...
 
-wishlist:
+#### wishlist:
 
 	sftp
 	scp
@@ -49,7 +49,7 @@ wishlist:
 	...
 
 
-basic example main.go:
+#### basic example main.go:
 
 	import (
 		"fmt"
@@ -73,7 +73,7 @@ basic example main.go:
 		data_generated := `hello world!`
 
 		// push that data to your customer's server like this:
-		_ := server.Push('/some/path/filename', data_generated)
+		_ = server.Push('/some/path/filename', data_generated)
 
 		// to prove it works, pull that same data from the server like this:
 		data_pull, _ := server.Pull('/some/path/filename')
